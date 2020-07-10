@@ -5,28 +5,37 @@ $( document ).ready(function() {
         duration: 1000,
     })
 
+    var creditValue = 10000000;
+    var repaymentValue = 15;
 
-    $('#repayment_value').text($('#repayment_slider').val());
-    $('#credit_value').text($('#credit_slider').val());
+    $("#credit_slider").slider({
+        min: 50000,
+        max: 30000000,
+        step: 50000,
+        value: 10000000,
+        range: "min",
+        stop: function( event, ui ) {
+            $('#credit_value').text(ui.value);
+        },
+        slide: function( event, ui ) {
 
-    $('#repayment_slider').change(function(event) {
-        $('#repayment_value').text($('#repayment_slider').val());
-        calc_loan();
+        }
     });
 
-    $('#credit_slider').change(function(event) {
-        $('#credit_value').text($('#credit_slider').val());
-        calc_loan();
+    $("#repayment_slider").slider({
+        min: 1,
+        max: 30,
+        step: 1,
+        value: 15,
+        range: "min",
+        stop: function( event, ui ) {
+            $('#repayment_value').text(ui.value);
+        },
+        slide: function( event, ui ) {
+
+        }
     });
 
-    $('.range').bind('change mousemove', function() {
-        var val = $(this).val();
-        var buf = ((100 - val) / 4) + parseInt(val);
-        $(this).css(
-            'background',
-            'linear-gradient(to right, #cc181e 0%, #cc181e ' + val + '%, #777 ' + val + '%, #777 ' + buf + '%, #444 ' + buf + '%, #444 100%)'
-        );
-    });
-
-
+    $('#credit_value').text(creditValue);
+    $('#repayment_value').text(repaymentValue);
 });

@@ -6,6 +6,7 @@
 <!--    <link rel="shortcut icon" type="image/x-icon" sizes="256x256" href="favicon.png"/>-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/aos.css">
+    <link href="css/ui-slider.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/style.css">
     <title>Home</title>
   </head>
@@ -20,7 +21,7 @@
         <section class="main-page">
             <div class="text-block">
                 <h1 data-aos="fade-up">
-                    Кредит онлайн <span>за 15 минут</span>
+                    Кредит онлайн<br><span>за 15 минут</span>
                 </h1>
             </div>
             <div class="item-box">
@@ -62,24 +63,100 @@
                         <label class="slider-label">Сумма кредита, руб</label>
                         <label id="credit_value" class="slider-value"></label>
                     </div>
-                    <input id="credit_slider" class="range" type="range" min="10000" max="30000000" value="60" tabindex="3">
+                    <div class="slider-container">
+                        <div class="range" id="credit_slider"></div>
+                        <div class="scale_value">
+                            <span>50 тыс.</span>
+                            <span>4 млн.</span>
+                            <span>8 млн.</span>
+                            <span>12 млн.</span>
+                            <span>16 млн.</span>
+                            <span>20 млн.</span>
+                            <span>22,5 млн.</span>
+                            <span>26 млн.</span>
+                            <span>30 млн.</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="slider-group">
                     <div class="label-box">
                         <label class="slider-label">Срок кредита, мес</label>
                         <label id="repayment_value" class="slider-value"></label>
                     </div>
-                    <input id="repayment_slider" class="range" type="range" min="1" max="1000" value="60" tabindex="3">
+                    <div class="slider-container">
+                        <div class="range" id="repayment_slider"></div>
+                        <div class="scale_value">
+                            <span>1 мес.</span>
+                            <span>5 мес.</span>
+                            <span>9 мес.</span>
+                            <span>1 год</span>
+                            <span>1,4 год</span>
+                            <span>1,9 год</span>
+                            <span>2,1 год</span>
+                            <span>2,6 год</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-divider"></div>
+                <div class="input-box">
+                    <div class="form-group">
+                        <label for="last-name">Фамилия</label>
+                        <input type="text" id="last-name" class="form-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">Имя</label>
+                        <input type="text" id="first-name" class="form-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="middle-name">Отчество</label>
+                        <input type="text" id="middle-name" class="form-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" class="form-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Дата рождения</label>
+                        <input type="date" id="date" class="form-field">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-field">
+                    </div>
+                </div>
+                <div class="form-bottom">
+                    <label class="container-checkbox">Я ознакомлен(а) с <a href="#">условиями обработки персональных данных</a>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <button type="submit" class="main-btn">Отправить</button>
                 </div>
             </form>
         </div>
     </section>
 
     <footer class="container-fluid">
-
+        <div class="container footer-content">
+            <a href="#" class="logo">
+                <img src="img/logo.svg" alt="">
+            </a>
+            <div class="footer-info">
+                <span>Юридический адрес</span>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices mauris facilisis lacus adipiscing tempus dui viverra vulputate pellentesque. Amet ultrices pulvinar faucibus.
+                </p>
+            </div>
+            <div class="footer-info">
+                <span>Реквизиты</span>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices mauris facilisis lacus adipiscing tempus dui viverra vulputate pellentesque. Amet ultrices pulvinar faucibus.
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/ui-slider.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
