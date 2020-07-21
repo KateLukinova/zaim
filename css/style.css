@@ -60,7 +60,7 @@ h1 {
   font-size: 70px;
   line-height: 1.2;
   color: #242424;
-  margin: 55px 0 130px 0; }
+  margin: 55px 0; }
   h1 span {
     color: #41C120; }
 
@@ -147,6 +147,14 @@ a.m-btn, button.m-btn {
   background-position: top right;
   height: auto;
   min-height: 100vh; }
+
+.text-block h1 {
+  margin-bottom: 30px; }
+.text-block h3 {
+  font-family: "Gilroy-ExtraBold", sans-serif;
+  font-weight: bold;
+  margin-bottom: 25px;
+  font-size: 18px; }
 
 .container {
   padding: 0;
@@ -401,7 +409,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: rgba(0, 0, 0, 0);
   opacity: 1;
   display: block;
-  background: url("../img/date.svg") no-repeat;
+  background-image: url("../img/date.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
   width: 20px;
   height: 20px;
   border-width: thin; }
@@ -543,6 +553,13 @@ footer {
     line-height: 1.2;
     color: #666666;
     padding-bottom: 20px; }
+  .footer-info p {
+    font-size: 8px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none; }
 
 @media (max-width: 1400px) {
   header {
@@ -652,6 +669,11 @@ footer {
     margin-bottom: 45px; }
 
   .container-checkbox {
+    font-size: 14px; }
+
+  .text-block h1 {
+    margin-bottom: 20px; }
+  .text-block h3 {
     font-size: 14px; } }
 
 /*# sourceMappingURL=style.css.map */
