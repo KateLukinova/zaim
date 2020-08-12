@@ -16,11 +16,14 @@ $( document ).ready(function() {
         range: "min",
         stop: function( event, ui ) {
             $('#credit_value').text(ui.value);
+            $('#credit_sum').val(ui.value)
         },
         slide: function( event, ui ) {
 
         }
     });
+
+
 
     $("#repayment_slider").slider({
         min: 1,
@@ -30,6 +33,7 @@ $( document ).ready(function() {
         range: "min",
         stop: function( event, ui ) {
             $('#repayment_value').text(ui.value);
+            $('#credit_term').val(ui.value)
         },
         slide: function( event, ui ) {
 

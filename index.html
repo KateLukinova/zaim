@@ -68,6 +68,7 @@
                     </div>
                     <div class="slider-container">
                         <div class="range" id="credit_slider"></div>
+                        <input type="hidden" id="credit_sum">
                         <div class="scale_value">
                             <span>50 тыс.</span>
                             <span>4 млн.</span>
@@ -88,6 +89,7 @@
                     </div>
                     <div class="slider-container">
                         <div class="range" id="repayment_slider"></div>
+                        <input type="hidden" id="credit_term">
                         <div class="scale_value">
                             <span>1 год</span>
                             <span>5 лет</span>
@@ -100,10 +102,10 @@
                     </div>
                 </div>
                 <div class="form-divider"></div>
-                <form>
+                <div>
                     <!-- Hidden Required Fields -->
                     <input type="hidden" name="project_name" value="Московский центр займов">
-                    <input type="hidden" name="admin_email"  value="sample@example.com">
+                    <input type="hidden" name="admin_email"  value="katyushta@rambler.ru">
                     <input type="hidden" name="form_subject" value="Форма обратной связи">
                     <!-- END Hidden Required Fields -->
 
@@ -140,7 +142,7 @@
                         </label>
                         <button type="submit" class="main-btn">Отправить</button>
                     </div>
-                </form>
+                </div>
             </form>
         </div>
     </section>
