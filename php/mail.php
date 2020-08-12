@@ -1,52 +1,49 @@
 <?php
 
-$method = $_SERVER['REQUEST_METHOD'];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-//Script Foreach
+require_once '../PHPMailer/src/Exception.php';
+require_once '../PHPMailer/src/SMTP.php';
+require_once '../PHPMailer/src/PHPMailer.php';
+
+$mail = new PHPMailer();
+$mail->CharSet = 'UTF-8';
+
+// Настройки SMTP
+$mail->isSMTP();
+$mail->SMTPAuth = true;
+$mail->SMTPDebug = 0;
+$mail->SMTPSecure = 'ssl';
+
+$mail->Host = 'smtp.yandex.ru';
+$mail->Port = 465;
+$mail->Username = 'email_username';
+$mail->Password = 'email_password';
+
+$mail->setFrom('email_username@yandex.ru', 'Московский центр займов');
+$mail->addAddress('email_username@yandex.ru', 'Московский центр займов');
+
+$mail->isHTML(true);
+$mail->Subject = 'Форма обратной связи';
+
 $c = true;
-if ( $method === 'POST' ) {
 
-	$project_name = trim($_POST["project_name"]);
-	$admin_email  = trim($_POST["admin_email"]);
-	$form_subject = trim($_POST["form_subject"]);
-
-	foreach ( $_POST as $key => $value ) {
-		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
-			$message .= "
-			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
-			</tr>
-			";
-		}
-	}
-} else if ( $method === 'GET' ) {
-
-	$project_name = trim($_GET["project_name"]);
-	$admin_email  = trim($_GET["admin_email"]);
-	$form_subject = trim($_GET["form_subject"]);
-
-	foreach ( $_GET as $key => $value ) {
-		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
-			$message .= "
-			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
-				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
-			</tr>
-			";
-		}
-	}
+foreach ( $_POST as $key => $value ) {
+    if ( $value != "" ) {
+        $message .= "
+        " . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
+            <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
+            <td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
+        </tr>
+        ";
+    }
 }
+$mail->Body = "<table style='width: 100%;'>$message</table>";
 
-$message = "<table style='width: 100%;'>$message</table>";
-
-function adopt($text) {
-	return '=?UTF-8?B?'.Base64_encode($text).'?=';
+if ($mail->send()) {
+    echo 'Письмо отправлено!';
+} else {
+    echo 'Ошибка: ' . $mail->ErrorInfo;
 }
-
-$headers = "MIME-Version: 1.0" . PHP_EOL .
-"Content-Type: text/html; charset=utf-8" . PHP_EOL .
-'From: '.adopt($project_name).' <'.$admin_email.'>' . PHP_EOL .
-'Reply-To: '.$admin_email.'' . PHP_EOL;
-
-mail($admin_email, adopt($form_subject), $message, $headers);

@@ -42,6 +42,8 @@ $( document ).ready(function() {
 
     $('#credit_value').text(creditValue);
     $('#repayment_value').text(repaymentValue);
+    $('#credit_sum').val(creditValue);
+    $('#credit_term').val(repaymentValue);
 
 	$('form').submit(function() {
         var th = $(this);
@@ -50,7 +52,7 @@ $( document ).ready(function() {
 			url: '../php/mail.php',
 			data: th.serialize()
 		}).done(function() {
-			alert('Thank you!');
+			alert('Спасибо!');
 			setTimeout(function() {
 				th.trigger('reset');
 			}, 1000);
